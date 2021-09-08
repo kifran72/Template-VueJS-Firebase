@@ -31,19 +31,18 @@ export default {
     if (localStorage.userTheme === "dark") {
       this.themeSwitch = true;
     }
-    let _this = this;
     auth.onAuthStateChanged((user) => {
       if (user) {
-        _this.email = user.email;
-        _this.loading = false;
+        this.loading = false;
+        this.email = user.email;
       } else this.$router.replace("/account/login").catch(() => {}); // User not logged
     });
   },
   methods: {
     changeTheme: function() {
-      if (this.themeSwitch) localStorage.userTheme = "dark";
-      else localStorage.userTheme = "light";
-      this.$emit("themeChanged");
+      if (this.themeSwitch) localStorage.setItem("userTheme", "dark");
+      else localStorage.setItem("userTheme", "light");
+      this.$root.$emit("themeChanged");
     },
     logout: function() {
       logout();

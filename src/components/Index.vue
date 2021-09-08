@@ -61,12 +61,6 @@ export default {
         auth: true,
       },
       {
-        icon: "map",
-        title: "Error 404 ;)",
-        link: "/error-404",
-        auth: true,
-      },
-      {
         icon: "info",
         title: "Info",
         link: "/info",
@@ -74,16 +68,17 @@ export default {
       },
       {
         icon: "person",
-        title: "Account",
+        title: "Connexion",
         link: "/account",
         auth: true,
       },
     ],
+    timer: null,
   }),
   mounted() {
-    if (localStorage.userTheme === "dark") {
-      this.userTheme = "dark";
-    }
+    this.$root.$on("themeChanged", () => {
+      this.themeChanged();
+    });
     if (this.$route.fullPath === "/") {
       this.$router.replace("/home").catch(() => {});
     }
@@ -91,6 +86,10 @@ export default {
   methods: {
     toggleMenu() {
       this.menuVisible = !this.menuVisible;
+    },
+    themeChanged() {
+      if (localStorage.userTheme === "dark") this.userTheme = "dark";
+      else this.userTheme = "default";
     },
   },
 };

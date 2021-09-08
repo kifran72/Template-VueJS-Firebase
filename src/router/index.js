@@ -37,21 +37,21 @@ const router = new VueRouter({
           name: "info",
           component: Info,
         },
-      ],
-    },
-    {
-      path: "/account",
-      component: AccountIndex,
-      children: [
         {
-          path: "",
-          name: "account-info",
-          component: AccountInfo,
-        },
-        {
-          path: "login",
-          name: "account-login",
-          component: AccountLogin,
+          path: "account",
+          component: AccountIndex,
+          children: [
+            {
+              path: "",
+              name: "account-info",
+              component: AccountInfo,
+            },
+            {
+              path: "login",
+              name: "account-login",
+              component: AccountLogin,
+            },
+          ],
         },
       ],
     },

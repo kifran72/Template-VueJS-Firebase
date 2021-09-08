@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="center">
     <h1>Home</h1>
   </div>
 </template>
@@ -14,24 +14,12 @@ export default {
 </script>
 
 <style scoped>
-.md-field {
-  max-width: 500px;
-}
-
-.section {
-  margin-bottom: 50px;
-}
-
-.contact {
-  width: 320px;
-  max-width: 100%;
-  display: inline-block;
-  vertical-align: top;
-  overflow: auto;
-  border: 1px solid orange;
-}
-
-.md-avatar {
-  margin: 36px;
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
 }
 </style>
